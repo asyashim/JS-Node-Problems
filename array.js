@@ -283,9 +283,13 @@ let array1=[1,2,3,4,5,67,1,2,3]
 for(let i=0;i<array1.length;i++){
     for(let j=i+1;j<array1.length;j++){
 if(array1[i]===array1[j]){
-    array1[j]=array1[j+1]
-    array1.length++
+    for(let k=j;k<array1.length;k++){
+        array1[k]=array1[k+1]
+        array1.length--
+    }j--
 }
+    
+
     }
 }
 console.log(array1)
