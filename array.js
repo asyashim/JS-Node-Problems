@@ -293,3 +293,193 @@ if(array1[i]===array1[j]){
     }
 }
 console.log(array1)
+
+//  Find the difference between max and min values in an array.
+let arr19=[1,2,3,4,5,6,7]
+let max2=arr19[0]
+let min2=arr19[0]
+
+for(let i=1;i<arr19.length;i++){    
+    if(arr19[i]>max2){
+
+
+        max2=arr19[i]
+    }       
+
+    if(arr19[i]<min2){
+        min2=arr19[i]
+    }       
+}
+let difference=max2-min2
+console.log(`Difference between max and min values in the array is ${difference}`)
+
+
+//  Check if two arrays are equal.
+let arr20=[1,2,3,4,5]
+let arr21=[1,2,3,4,5]
+let areEqual=true       
+if(arr20.length!==arr21.length){
+    areEqual=false
+}
+else{
+    for(let i=0;i<arr20.length;i++){
+        if(arr20[i]!==arr21[i]){
+            areEqual=false
+            break
+        }
+    }   
+}
+console.log(`Arrays are ${areEqual ? 'equal' : 'not equal'}`)
+
+
+//  Find common elements between two arrays.
+let arr22=[1,2,3,4,5]
+let arr23=[4,5,6,7,8]
+let commonElements=[]
+for(let i=0;i<arr22.length;i++){
+    for(let j=0;j<arr23.length;j++){
+        if(arr22[i]===arr23[j]){
+            commonElements.push(arr22[i])
+            break
+        }
+    }
+}
+console.log(`Common elements between the two arrays are: ${commonElements}`)
+
+//  Split an array at a given index.
+let arr24=[1,2,3,4,5,6,7]
+let index2=4
+let firstPart=[]
+let secondPart=[]
+for(let i=0;i<arr24.length;i++){
+    if(i<index2){
+        firstPart.push(arr24[i])
+    }else{
+        secondPart.push(arr24[i])
+    }   
+}
+console.log(`First part of the array: ${firstPart}`)
+console.log(`Second part of the array: ${secondPart}`)
+
+// Check if an array is a palindrome
+let arr25=[1,2,3,2,1]
+let isPalindrome=true       
+for(let i=0;i<arr25.length/2;i++){
+    if(arr25[i]!==arr25[arr25.length-1-i]){
+        isPalindrome=false
+        break
+    }   
+}
+console.log(`Array is ${isPalindrome ? 'a palindrome' : 'not a palindrome'}`)
+
+//  Find the union of two arrays (no duplicates).
+let arr26=[1,2,3,4,5]
+let arr27=[4,5,6,7,8]
+let union=[]        
+for(let i=0;i<arr26.length;i++){
+    if(!union.includes(arr26[i])){
+        union.push(arr26[i])
+    }
+}
+for(let j=0;j<arr27.length;j++){
+    if(!union.includes(arr27[j])){
+        union.push(arr27[j])
+    }   
+}   
+
+console.log(`Union of the two arrays is: ${union}`) 
+
+
+// Merge two sorted arrays into one sorted array.
+let arr28=[1,3,5,7]
+let arr29=[2,4,6,8]
+let mergedSorted=[] 
+let index3=0
+for(let i=0;i<arr28.length;i++)  {
+    mergedSorted[index3]=arr28[i]
+    index3++
+} 
+for(let j=0;j<arr29.length;j++){
+    mergedSorted[index3]=arr29[j]
+    index3++
+}   
+// Sort the merged array
+for(let i=0;i<mergedSorted.length-1;i++){
+    for(let j=0;j<mergedSorted.length-1-i;j++){         
+            
+        if(mergedSorted[j]>mergedSorted[j+1]){
+
+
+            let temp=mergedSorted[j]
+            mergedSorted[j]=mergedSorted[j+1]
+            mergedSorted[j+1]=temp
+        }       
+
+    }
+}   
+
+console.log(`Merged and sorted array is: ${mergedSorted}`)
+//  Delete even numbers from an array.
+let arr30=[1,2,3,4,5,6,7,8,9]
+for(let i=0;i<arr30.length;i++){
+    if(arr30[i]%2===0){ 
+        for(let j=i;j<arr30.length-1;j++){
+            arr30[j]=arr30[j+1]
+        }           
+        arr30.length--
+        i--
+    }       
+}
+console.log(`Array after deleting even numbers: ${arr30}`)
+
+//  Delete prime numbers from an array.
+let arr31=[1,2,3,4,5,6,7,8,9]
+for(let i=0;i<arr31.length;i++){
+    let num=arr31[i]        
+    let isPrime=true
+    if(num<=1){
+        isPrime=false
+    }       
+    else{
+        for(let j=2;j<num/2;j++){
+            if(num%j===0){
+                isPrime=false
+                break
+            }   
+        }
+    }       
+    if(isPrime){
+        for(let k=i;k<arr31.length-1;k++){
+            arr31[k]=arr31[k+1]
+        }       
+        arr31.length--
+        i--
+    }
+
+}
+console.log(`Array after deleting prime numbers: ${arr31}`)
+
+// Find the smallest prime number.
+function isPrime(num){
+    if(num<=1){
+        return false
+    }       
+    for(let i=2;i<num/2;i++){
+        if(num%i===0){
+            return false
+        }
+
+    }   
+    return true
+}       
+let smallestPrime=null
+for(let i=2;i<100;i++){
+    if(isPrime(i)){     
+
+
+        smallestPrime=i
+        break
+    }       
+}
+console.log(`Smallest prime number is: ${smallestPrime}`)   
+
